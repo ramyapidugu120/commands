@@ -25,24 +25,6 @@ from .permissions import IsOwner  # Import your custom permission
 from rest_framework.pagination import PageNumberPagination 
  
 
-# class Login(APIView):
-#     permission_classes = [AllowAny]  # Allow unauthenticated access
-
-#     def post(self, request, format=None):
-#         username = request.data.get('username')
-#         password = request.data.get('password')
-#         user = authenticate(username=username, password=password)
-#         if user is not None:
-#             refresh = RefreshToken.for_user(user)
-#             return Response({
-#                 'refresh': str(refresh),
-#                 'access': str(refresh.access_token),
-#                 'message': 'Login successful'
-#             }, status=status.HTTP_200_OK)
-#         else:
-#             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
-
 
 class AllOrdersViewSet(APIView):
     def get(self, request, *args, **Kwargs):
