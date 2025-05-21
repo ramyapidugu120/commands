@@ -34,7 +34,7 @@ class AllOrdersViewSet(APIView):
         for order in orders_data:
             order['products']=OrderItemsSerializer(OrderItems.objects.filter(OrderID=order['OrderID']),many=True).data
         return Response(orders_data)
-
+        
 class RegCustomers(APIView):
     def post(self,request, *args, **Kwargs):
         reg_serializer=CustomerDetailsSerializer(data=request.data)
@@ -57,7 +57,7 @@ class AddProducts(APIView):
 
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
-
+    
     
     def post(self,request, *args, **Kwargs):
         addproducts_serializer=ProductsSerializer(data=request.data)
